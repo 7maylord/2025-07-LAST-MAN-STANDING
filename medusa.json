@@ -1,11 +1,11 @@
 {
   "fuzzing": {
     "workers": 4,
-    "workerResetLimit": 50,
-    "timeout": 30,
-    "testLimit": 10000,
-    "shrinkLimit": 1000,
-    "callSequenceLength": 50,
+    "workerResetLimit": 100,
+    "timeout": 120,
+    "testLimit": 50000,
+    "shrinkLimit": 5000,
+    "callSequenceLength": 100,
     "corpusDirectory": "medusa-corpus",
     "coverageEnabled": true,
     "targetContracts": ["GameInvariantTest"],

@@ -1,0 +1,287 @@
+⇾ Compiling targets with crytic-compile
+⇾ Running command:
+/home/alfredadenigba/.local/bin/crytic-compile test/GameInvariantTest.sol --export-format solc
+⇾ Finished compiling targets in 13s
+⇾ No Slither cached results found at slither_results.json
+⇾ Running Slither:
+/home/alfredadenigba/.local/bin/slither test/GameInvariantTest.sol --ignore-compile --print echidna --json -
+warn Failed to run slither
+‣ exit status 1
+⇾ Running with a timeout of 120 seconds
+⇾ Initializing corpus
+⇾ Setting up test chain
+⇾ Finished setting up test chain
+⇾ Running call sequences in the corpus
+⇾ Finished running call sequences in the corpus in 0s
+⇾ corpus: health: 39%, sequences: 99 (39 valid, 60 invalid)
+⇾ Fuzzing with 4 workers
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_withdrawWinnings()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_gameWasReset()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_platformFeesBalance()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.FEE_INCREASE_PERCENTAGE()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_player_claim_count_consistent()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_sandwichAttack()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_consecutiveClaims()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_gameStateConsistency()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.targetInterfaces()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.excludeSelectors()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_gameProgression()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_noUnauthorizedWithdrawals()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_totalClaim()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_feeGrowthNotStuck()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_multiplePlayersCanParticipate()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.targetSenders()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.PLATFORM_FEE_PERCENTAGE()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_claimNearGracePeriodEnd()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_lastClaimFee()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_claimFeeIncreasesWithClaims()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_gameLogicNotBroken()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.targetArtifactSelectors()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.IS_TEST()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_platformFeeBalance_consistent()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_updatePlatformFeePercentage(uint256)
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_playerTotalReceived(address)
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_contractBalanceConsistency()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_ethAccountingConsistency()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_gameLogicConsistency()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_totalClaimsConsistent()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_reentrancyAttack()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_claimFeeOverflowProtection()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_gracePeriodPositive()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_withdrawPatternSafety()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.targetArtifacts()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.targetContracts()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.excludeArtifacts()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_rapidClaims()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_updateClaimFeeParameters(uint256,uint256)
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_platformFeeCalculationBug()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.attacker()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.gameClaimThrone(uint256)
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_declareWinner()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_griefingAttack()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_lastKing()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_claimFeeNeverBelowInitial()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_noFundsStuck()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_potNeverNegative()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_claimThroneLogicBug()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_timestampManipulation()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.INITIAL_CLAIM_FEE()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_frontRunningAttack()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_withdrawPlatformFees()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_gameRoundPositive()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_kingCannotStayForever()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_platformFeesNeverNegative()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.failed()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_updateGracePeriod(uint256)
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_players(uint256)
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_potShouldGrow()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.GRACE_PERIOD()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_claimWithExactFee()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_stateRaceCondition()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_totalEtherOut()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_attackerCannotDrainFunds()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_previousKingPayoutBug()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_totalEtherIn()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_gasGriefing()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_noEtherLeakage()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_reentrancyProtection()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.roundAccumulator()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.excludeSenders()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_resetGame()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_gameEndingEdgeCases()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_noReentrancySuccessful()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.invariant_percentagesValid()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.excludeContracts()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_maxClaimFee()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.ghost_playerTotalSpent(address)
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.targetSelectors()
+⇾ [NOT STARTED] Assertion Test: GameInvariantTest.game_claimWithExcessFee()
+⇾ fuzz: elapsed: 0s, calls: 0 (0/sec), seq/s: 0, branches hit: 959, corpus: 39, failures: 0/0, gas/s: 0
+⇾ [Worker 3] Shrinking call sequence for Assertion Test: GameInvariantTest.gameClaimThrone(uint256) with 20 call(s)
+⇾ [Worker 2] Shrinking call sequence for Assertion Test: GameInvariantTest.game_claimWithExactFee() with 2 call(s)
+⇾ [Worker 1] Shrinking call sequence for Assertion Test: GameInvariantTest.game_frontRunningAttack() with 7 call(s)
+⇾ [Worker 0] Shrinking call sequence for Assertion Test: GameInvariantTest.game_claimWithExcessFee() with 16 call(s)
+⇾ fuzz: elapsed: 3s, calls: 795 (264/sec), seq/s: 13, branches hit: 1144, corpus: 51, failures: 0/42, gas/s: 11963575
+⇾ Fuzzer stopped, test results follow below ...
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.FEE_INCREASE_PERCENTAGE()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.GRACE_PERIOD()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.INITIAL_CLAIM_FEE()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.IS_TEST()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.PLATFORM_FEE_PERCENTAGE()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.attacker()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.excludeArtifacts()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.excludeContracts()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.excludeSelectors()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.excludeSenders()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.failed()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_claimNearGracePeriodEnd()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_declareWinner()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_gasGriefing()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_griefingAttack()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_platformFeeBalance_consistent()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_player_claim_count_consistent()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_rapidClaims()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_reentrancyAttack()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_resetGame()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_sandwichAttack()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_stateRaceCondition()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_timestampManipulation()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_updateClaimFeeParameters(uint256,uint256)[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_updateGracePeriod(uint256)[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_updatePlatformFeePercentage(uint256)[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_withdrawPlatformFees()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.game_withdrawWinnings()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_consecutiveClaims()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_gameWasReset()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_lastClaimFee()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_lastKing()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_maxClaimFee()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_platformFeesBalance()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_playerTotalReceived(address)[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_playerTotalSpent(address)[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_players(uint256)[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_totalClaim()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_totalEtherIn()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.ghost_totalEtherOut()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_attackerCannotDrainFunds()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_claimFeeIncreasesWithClaims()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_claimFeeNeverBelowInitial()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_claimFeeOverflowProtection()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_claimThroneLogicBug()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_contractBalanceConsistency()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_ethAccountingConsistency()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_feeGrowthNotStuck()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_gameEndingEdgeCases()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_gameLogicConsistency()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_gameLogicNotBroken()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_gameProgression()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_gameRoundPositive()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_gameStateConsistency()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_gracePeriodPositive()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_kingCannotStayForever()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_multiplePlayersCanParticipate()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_noEtherLeakage()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_noFundsStuck()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_noReentrancySuccessful()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_noUnauthorizedWithdrawals()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_percentagesValid()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_platformFeeCalculationBug()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_platformFeesNeverNegative()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_potNeverNegative()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_potShouldGrow()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_previousKingPayoutBug()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_reentrancyProtection()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_totalClaimsConsistent()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.invariant_withdrawPatternSafety()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.roundAccumulator()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.targetArtifactSelectors()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.targetArtifacts()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.targetContracts()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.targetInterfaces()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.targetSelectors()[0m
+⇾ [1m[32m[PASSED] [0m[0m[1mAssertion Test: GameInvariantTest.targetSenders()[0m
+⇾ [1m[31m[FAILED] [0m[0m[1mAssertion Test: GameInvariantTest.game_claimWithExactFee()[0m
+Test for method "GameInvariantTest.game_claimWithExactFee()" resulted in an assertion failure after the following call sequence:
+[1m[Call Sequence][0m
+1) GameInvariantTest.game_claimWithExactFee()() (block=23861, time=184317, gas=12500000, gasprice=1, value=1776193154983146630, sender=0x30000)
+[1m[Execution Trace][0m
+ => [1m[34m[call] [0m[0mGameInvariantTest.game_claimWithExactFee()() (addr=0xA647ff3c36cFab592509E13860ab8c4F28781a66, value=1776193154983146630, sender=0x30000)
+	 => [1m[34m[call] [0m[0mGame.gameEnded()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (false)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.currentKing()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0x)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.gameEnded()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (false)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.currentKing()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0x)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.pot()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.platformFeePercentage()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (5)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimThrone()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=10000000000000000, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[31m[revert ('Game: You are already the king. No need to re-claim.')][0m[0m
+	 => [1m[31m[panic: assertion failed][0m[0m
+
+
+⇾ [1m[31m[FAILED] [0m[0m[1mAssertion Test: GameInvariantTest.game_claimWithExcessFee()[0m
+Test for method "GameInvariantTest.game_claimWithExcessFee()" resulted in an assertion failure after the following call sequence:
+[1m[Call Sequence][0m
+1) GameInvariantTest.game_claimWithExcessFee()() (block=586, time=144268, gas=12500000, gasprice=1, value=16607414349933364136, sender=0x10000)
+[1m[Execution Trace][0m
+ => [1m[34m[call] [0m[0mGameInvariantTest.game_claimWithExcessFee()() (addr=0xA647ff3c36cFab592509E13860ab8c4F28781a66, value=16607414349933364136, sender=0x10000)
+	 => [1m[34m[call] [0m[0mGame.gameEnded()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (false)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.currentKing()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0x)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.gameEnded()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (false)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.currentKing()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0x)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.pot()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.platformFeePercentage()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (5)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimThrone()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=20000000000000000, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[31m[revert ('Game: You are already the king. No need to re-claim.')][0m[0m
+	 => [1m[31m[panic: assertion failed][0m[0m
+
+
+⇾ [1m[31m[FAILED] [0m[0m[1mAssertion Test: GameInvariantTest.game_frontRunningAttack()[0m
+Test for method "GameInvariantTest.game_frontRunningAttack()" resulted in an assertion failure after the following call sequence:
+[1m[Call Sequence][0m
+1) GameInvariantTest.game_frontRunningAttack()() (block=493, time=4062, gas=12500000, gasprice=1, value=10424474008057650142, sender=0x10000)
+[1m[Execution Trace][0m
+ => [1m[34m[call] [0m[0mGameInvariantTest.game_frontRunningAttack()() (addr=0xA647ff3c36cFab592509E13860ab8c4F28781a66, value=10424474008057650142, sender=0x10000)
+	 => [1m[34m[call] [0m[0mGame.gameEnded()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (false)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mAttackerContract.frontRunAttack(address)(0x123) (addr=0x1375317AA980daaBF22f990a378ECCaD9B40dc0, value=10424474008057650142, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[34m[call] [0m[0mGame.claimThrone()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=10424474008057650142, sender=0x1375317AA980daaBF22f990a378ECCaD9B40dc0)
+			 => [1m[31m[revert ('Game: You are already the king. No need to re-claim.')][0m[0m
+		 => [1m[32m[return ()][0m[0m
+	 => [1m[34m[call] [0m[0mGame.currentKing()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0x)][0m[0m
+	 => [1m[31m[panic: assertion failed][0m[0m
+
+
+⇾ [1m[31m[FAILED] [0m[0m[1mAssertion Test: GameInvariantTest.gameClaimThrone(uint256)[0m
+Test for method "GameInvariantTest.gameClaimThrone(uint256)" resulted in an assertion failure after the following call sequence:
+[1m[Call Sequence][0m
+1) GameInvariantTest.gameClaimThrone(uint256)(15869147766445187) (block=23894, time=430687, gas=12500000, gasprice=1, value=14149173530267923745, sender=0x20000)
+[1m[Execution Trace][0m
+ => [1m[34m[call] [0m[0mGameInvariantTest.gameClaimThrone(uint256)(15869147766445187) (addr=0xA647ff3c36cFab592509E13860ab8c4F28781a66, value=14149173530267923745, sender=0x20000)
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.gameEnded()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (false)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.currentKing()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0x)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimFee()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (10000000000000000)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.pot()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (0)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.platformFeePercentage()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=<nil>, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[32m[return (5)][0m[0m
+	 => [1m[34m[call] [0m[0mGame.claimThrone()() (addr=0x54919A19522Ce7c842E25735a9cFEcef1c0a06dA, value=15869147766445187, sender=0xA647ff3c36cFab592509E13860ab8c4F28781a66)
+		 => [1m[31m[revert ('Game: You are already the king. No need to re-claim.')][0m[0m
+	 => [1m[31m[panic: assertion failed][0m[0m
+
+
+⇾ Test summary: 78 test(s) passed, 4 test(s) failed
+⇾ html report(s) saved to: medusa-corpus/coverage/coverage_report.html
+⇾ lcov report(s) saved to: medusa-corpus/coverage/lcov.info
