@@ -1,0 +1,9 @@
+⇾ Compiling targets with solc
+error Failed to compile target
+‣ error while executing solc:
+exit status 1
+
+Command Output:
+Error: "." is not a valid file.
+
+

@@ -1,0 +1,7 @@
+⇾ Compiling targets with solc
+error Failed to compile target
+‣ error while executing solc:
+OUTPUT:
+
+ERROR: exec: "solc": executable file not found in $PATH
+

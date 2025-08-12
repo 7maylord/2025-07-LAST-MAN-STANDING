@@ -1,0 +1,9 @@
+⇾ Compiling targets with crytic-compile
+⇾ Running command:
+crytic-compile . --export-format solc
+error Failed to compile target
+‣ error while executing `solc-select install`:
+OUTPUT:
+
+ERROR: exec: "solc-select": executable file not found in $PATH
+

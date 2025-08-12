@@ -1,0 +1,35 @@
+{
+  "fuzzing": {
+    "workers": 4,
+    "workerResetLimit": 50,
+    "timeout": 30,
+    "testLimit": 10000,
+    "shrinkLimit": 1000,
+    "callSequenceLength": 50,
+    "corpusDirectory": "medusa-corpus",
+    "coverageEnabled": true,
+    "targetContracts": ["GameInvariantTest"],
+    "deploymentOrder": ["GameInvariantTest"],
+    "constructorArgs": {}
+  },
+  "compilation": {
+    "platform": "crytic-compile",
+    "platformConfig": {
+      "target": "test/GameInvariantTest.sol",
+      "solcVersion": "",
+      "args": []
+    }
+  },
+  "logging": {
+    "level": "info",
+    "logDirectory": "medusa-logs",
+    "noColor": false
+  },
+  "chainConfig": {
+    "codeSizeCheckDisabled": true,
+    "cheatCodes": {
+      "cheatCodesEnabled": true,
+      "enableFFI": false
+    }
+  }
+}
