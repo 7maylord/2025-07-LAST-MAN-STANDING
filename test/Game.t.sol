@@ -33,12 +33,7 @@ contract GameTest is Test {
         vm.deal(maliciousActor, 10 ether);
 
         vm.startPrank(deployer);
-        game = new Game( 
-            INITIAL_CLAIM_FEE,
-            GRACE_PERIOD,
-            FEE_INCREASE_PERCENTAGE,
-            PLATFORM_FEE_PERCENTAGE
-        );
+        game = new Game(INITIAL_CLAIM_FEE, GRACE_PERIOD, FEE_INCREASE_PERCENTAGE, PLATFORM_FEE_PERCENTAGE);
         vm.stopPrank();
     }
 

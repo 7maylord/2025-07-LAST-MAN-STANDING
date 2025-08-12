@@ -6,15 +6,15 @@ import "forge-std/Test.sol";
 
 contract GameInvariantTest is Test {
     Game public game;
-    
+
     uint256 public constant INITIAL_CLAIM_FEE = 0.01 ether;
     uint256 public constant GRACE_PERIOD = 1 hours;
     uint256 public constant FEE_INCREASE_PERCENTAGE = 10;
     uint256 public constant PLATFORM_FEE_PERCENTAGE = 5;
-    
+
     address public owner;
     address[] public players;
-    
+
     modifier useActor(uint256 actorIndexSeed) {
         address currentActor = players[bound(actorIndexSeed, 0, players.length - 1)];
         vm.startPrank(currentActor);
@@ -24,14 +24,9 @@ contract GameInvariantTest is Test {
 
     function setUp() public {
         owner = address(this);
-        
-        game = new Game(
-            INITIAL_CLAIM_FEE,
-            GRACE_PERIOD,
-            FEE_INCREASE_PERCENTAGE,
-            PLATFORM_FEE_PERCENTAGE
-        );
-        
+
+        game = new Game(INITIAL_CLAIM_FEE, GRACE_PERIOD, FEE_INCREASE_PERCENTAGE, PLATFORM_FEE_PERCENTAGE);
+
         for (uint256 i = 0; i < 10; i++) {
             address player = address(uint160(uint256(keccak256(abi.encodePacked(i, block.timestamp)))));
             players.push(player);
@@ -41,31 +36,31 @@ contract GameInvariantTest is Test {
 
     function claimThrone(uint256 actorSeed, uint256 ethAmount) public useActor(actorSeed) {
         ethAmount = bound(ethAmount, game.claimFee(), 10 ether);
-        
+
         if (!game.gameEnded() && msg.sender != game.currentKing()) {
             game.claimThrone{value: ethAmount}();
         }
     }
-    
+
     function declareWinner() public {
         if (!game.gameEnded() && game.currentKing() != address(0)) {
             skip(game.gracePeriod() + 1);
             game.declareWinner();
         }
     }
-    
+
     function withdrawWinnings(uint256 actorSeed) public useActor(actorSeed) {
         if (game.pendingWinnings(msg.sender) > 0) {
             game.withdrawWinnings();
         }
     }
-    
+
     function resetGame() public {
         if (game.gameEnded()) {
             game.resetGame();
         }
     }
-    
+
     function withdrawPlatformFees() public {
         vm.startPrank(game.owner());
         if (game.platformFeesBalance() > 0) {
@@ -77,11 +72,11 @@ contract GameInvariantTest is Test {
     function invariant_contractBalanceConsistency() public view {
         uint256 contractBalance = address(game).balance;
         uint256 expectedBalance = game.pot() + game.platformFeesBalance();
-        
+
         for (uint256 i = 0; i < players.length; i++) {
             expectedBalance += game.pendingWinnings(players[i]);
         }
-        
+
         assert(contractBalance >= expectedBalance);
     }
 
@@ -105,7 +100,7 @@ contract GameInvariantTest is Test {
         if (game.gameEnded()) {
             assert(game.pot() == 0);
         }
-        
+
         if (game.currentKing() != address(0)) {
             assert(game.lastClaimTime() > 0);
         }
@@ -122,12 +117,12 @@ contract GameInvariantTest is Test {
 
     function invariant_totalClaimsConsistent() public view {
         assert(game.totalClaims() >= 0);
-        
+
         uint256 totalPlayerClaims = 0;
         for (uint256 i = 0; i < players.length; i++) {
             totalPlayerClaims += game.playerClaimCount(players[i]);
         }
-        
+
         assert(game.totalClaims() >= totalPlayerClaims);
     }
 
@@ -194,11 +189,11 @@ contract GameInvariantTest is Test {
 
     function invariant_noEtherLeakage() public view {
         uint256 totalAccountedEther = game.pot() + game.platformFeesBalance();
-        
+
         for (uint256 i = 0; i < players.length; i++) {
             totalAccountedEther += game.pendingWinnings(players[i]);
         }
-        
+
         assert(address(game).balance == totalAccountedEther);
     }
 
@@ -206,7 +201,7 @@ contract GameInvariantTest is Test {
         if (game.gameEnded()) {
             uint256 currentRound = game.gameRound();
             game.resetGame();
-            
+
             assert(game.claimFee() == game.initialClaimFee());
             assert(game.gameRound() == currentRound + 1);
             assert(!game.gameEnded());
@@ -226,7 +221,7 @@ contract GameInvariantTest is Test {
             // Check for potential overflow in time calculation
             uint256 gracePeriod = game.gracePeriod();
             uint256 lastClaim = game.lastClaimTime();
-            
+
             // Prevent overflow in addition
             if (gracePeriod > type(uint256).max - lastClaim) {
                 // Overflow would occur, just check that function doesn't revert
@@ -247,7 +242,6 @@ contract GameInvariantTest is Test {
         }
     }
 
-
     function invariant_gameProgression() public view {
         // If someone has claimed the throne, others should be able to claim it too
         // This catches the inverted logic bug in claimThrone()
@@ -263,13 +257,13 @@ contract GameInvariantTest is Test {
         // This directly tests the broken claimThrone logic
         if (!game.gameEnded() && game.currentKing() != address(0)) {
             address currentKing = game.currentKing();
-            
+
             // Try to find a different player who can afford the claim fee
             for (uint256 i = 0; i < players.length; i++) {
                 address player = players[i];
                 if (player != currentKing && address(player).balance >= game.claimFee()) {
                     vm.startPrank(player);
-                    
+
                     // This should succeed but will fail due to the bug
                     try game.claimThrone{value: game.claimFee()}() {
                         // If successful, verify the king changed
@@ -280,12 +274,15 @@ contract GameInvariantTest is Test {
                         // If it fails, check the error message
                         if (reason.length >= 4) {
                             bytes memory revertData = new bytes(reason.length - 4);
-                            for (uint i = 0; i < revertData.length; i++) {
+                            for (uint256 i = 0; i < revertData.length; i++) {
                                 revertData[i] = reason[i + 4];
                             }
                             string memory errorMsg = abi.decode(revertData, (string));
                             // This catches the bug - wrong error message for non-kings
-                            assert(keccak256(bytes(errorMsg)) != keccak256("Game: You are already the king. No need to re-claim."));
+                            assert(
+                                keccak256(bytes(errorMsg))
+                                    != keccak256("Game: You are already the king. No need to re-claim.")
+                            );
                         }
                     }
                     vm.stopPrank();
@@ -311,7 +308,7 @@ contract GameInvariantTest is Test {
         if (game.totalClaims() > 0 && !game.gameEnded()) {
             uint256 currentFee = game.claimFee();
             uint256 initialFee = game.initialClaimFee();
-            
+
             if (game.totalClaims() > 1) {
                 // After multiple claims, fee should be higher than initial
                 assert(currentFee >= initialFee);
@@ -338,7 +335,7 @@ contract GameInvariantTest is Test {
         for (uint256 i = 0; i < players.length; i++) {
             totalPendingWinnings += game.pendingWinnings(players[i]);
         }
-        
+
         // Contract should always have enough balance to cover pending winnings
         assert(address(game).balance >= totalPendingWinnings);
     }
@@ -349,7 +346,7 @@ contract GameInvariantTest is Test {
         if (game.gameEnded()) {
             // When game ends, pot should be 0 (transferred to winner)
             assert(game.pot() == 0);
-            
+
             // Winner should have pending winnings
             address winner = game.currentKing();
             if (winner != address(0)) {
@@ -362,10 +359,11 @@ contract GameInvariantTest is Test {
         // Check that claim fee hasn't overflowed
         uint256 currentFee = game.claimFee();
         uint256 feeIncrease = game.feeIncreasePercentage();
-        
+
         if (currentFee > 0 && feeIncrease > 0) {
             // If fee increase is reasonable, multiplication shouldn't overflow
-            if (feeIncrease <= 1000) { // 1000% increase limit for safety
+            if (feeIncrease <= 1000) {
+                // 1000% increase limit for safety
                 uint256 maxIncrease = (currentFee * feeIncrease) / 100;
                 // Check that the next fee calculation won't overflow
                 assert(currentFee <= type(uint256).max - maxIncrease);
@@ -377,7 +375,7 @@ contract GameInvariantTest is Test {
         // Check for potential overflow in time calculations
         uint256 gracePeriod = game.gracePeriod();
         uint256 lastClaim = game.lastClaimTime();
-        
+
         // Addition should not overflow
         if (gracePeriod > 0) {
             assert(gracePeriod <= type(uint256).max - lastClaim);

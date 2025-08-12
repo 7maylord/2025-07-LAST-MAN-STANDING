@@ -15,12 +15,7 @@ contract GameScript is Script {
 
         vm.startBroadcast();
 
-        Game game = new Game(
-            initialClaimFee,
-            gracePeriod,
-            feeIncreasePercentage,
-            platformFeePercentage
-        );
+        Game game = new Game(initialClaimFee, gracePeriod, feeIncreasePercentage, platformFeePercentage);
 
         vm.stopBroadcast();
 

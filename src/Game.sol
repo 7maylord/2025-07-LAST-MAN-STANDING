@@ -4,7 +4,6 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Game is Ownable {
-
     // --- State Variables ---
 
     // Game Core State
@@ -44,11 +43,7 @@ contract Game is Ownable {
      * @param timestamp The block timestamp when the claim occurred.
      */
     event ThroneClaimed(
-        address indexed newKing,
-        uint256 claimAmount,
-        uint256 newClaimFee,
-        uint256 newPot,
-        uint256 timestamp
+        address indexed newKing, uint256 claimAmount, uint256 newClaimFee, uint256 newPot, uint256 timestamp
     );
 
     /**
@@ -58,12 +53,7 @@ contract Game is Ownable {
      * @param timestamp The block timestamp when the winner was declared.
      * @param round The game round that just ended.
      */
-    event GameEnded(
-        address indexed winner,
-        uint256 prizeAmount,
-        uint256 timestamp,
-        uint256 round
-    );
+    event GameEnded(address indexed winner, uint256 prizeAmount, uint256 timestamp, uint256 round);
 
     /**
      * @dev Emitted when a winner successfully withdraws their prize.
@@ -97,10 +87,7 @@ contract Game is Ownable {
      * @param newInitialClaimFee The new initial claim fee.
      * @param newFeeIncreasePercentage The new fee increase percentage.
      */
-    event ClaimFeeParametersUpdated(
-        uint256 newInitialClaimFee,
-        uint256 newFeeIncreasePercentage
-    );
+    event ClaimFeeParametersUpdated(uint256 newInitialClaimFee, uint256 newFeeIncreasePercentage);
 
     /**
      * @dev Emitted when the platform fee percentage is updated by the owner.
@@ -158,7 +145,8 @@ contract Game is Ownable {
         uint256 _gracePeriod,
         uint256 _feeIncreasePercentage,
         uint256 _platformFeePercentage
-    ) Ownable(msg.sender) { // Set deployer as owner
+    ) Ownable(msg.sender) {
+        // Set deployer as owner
         require(_initialClaimFee > 0, "Game: Initial claim fee must be greater than zero.");
         require(_gracePeriod > 0, "Game: Grace period must be greater than zero.");
         require(_feeIncreasePercentage <= 100, "Game: Fee increase percentage must be 0-100.");
@@ -214,13 +202,7 @@ contract Game is Ownable {
         // Increase the claim fee for the next player
         claimFee = claimFee + (claimFee * feeIncreasePercentage) / 100;
 
-        emit ThroneClaimed(
-            msg.sender,
-            sentAmount,
-            claimFee,
-            pot,
-            block.timestamp
-        );
+        emit ThroneClaimed(msg.sender, sentAmount, claimFee, pot, block.timestamp);
     }
 
     /**
@@ -230,10 +212,7 @@ contract Game is Ownable {
      */
     function declareWinner() external gameNotEnded {
         require(currentKing != address(0), "Game: No one has claimed the throne yet.");
-        require(
-            block.timestamp > lastClaimTime + gracePeriod,
-            "Game: Grace period has not expired yet."
-        );
+        require(block.timestamp > lastClaimTime + gracePeriod, "Game: Grace period has not expired yet.");
 
         gameEnded = true;
 
@@ -251,7 +230,7 @@ contract Game is Ownable {
         uint256 amount = pendingWinnings[msg.sender];
         require(amount > 0, "Game: No winnings to withdraw.");
 
-        (bool success, ) = payable(msg.sender).call{value: amount}("");
+        (bool success,) = payable(msg.sender).call{value: amount}("");
         require(success, "Game: Failed to withdraw winnings.");
 
         pendingWinnings[msg.sender] = 0;
@@ -291,10 +270,11 @@ contract Game is Ownable {
      * @param _newInitialClaimFee The new initial claim fee.
      * @param _newFeeIncreasePercentage The new fee increase percentage (0-100).
      */
-    function updateClaimFeeParameters(
-        uint256 _newInitialClaimFee,
-        uint256 _newFeeIncreasePercentage
-    ) external onlyOwner isValidPercentage(_newFeeIncreasePercentage) {
+    function updateClaimFeeParameters(uint256 _newInitialClaimFee, uint256 _newFeeIncreasePercentage)
+        external
+        onlyOwner
+        isValidPercentage(_newFeeIncreasePercentage)
+    {
         require(_newInitialClaimFee > 0, "Game: New initial claim fee must be greater than zero.");
         initialClaimFee = _newInitialClaimFee;
         feeIncreasePercentage = _newFeeIncreasePercentage;
@@ -324,7 +304,7 @@ contract Game is Ownable {
 
         platformFeesBalance = 0;
 
-        (bool success, ) = payable(owner()).call{value: amount}("");
+        (bool success,) = payable(owner()).call{value: amount}("");
         require(success, "Game: Failed to withdraw platform fees.");
 
         emit PlatformFeesWithdrawn(owner(), amount);
