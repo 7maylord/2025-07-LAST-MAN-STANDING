@@ -1,0 +1,7 @@
+⇾ Compiling targets with crytic-compile
+⇾ Running command:
+/home/alfredadenigba/.local/bin/crytic-compile test/GameInvariantTest.sol --export-format solc
+⇾ Finished compiling targets in 12s
+⇾ No Slither cached results found at slither_results.json
+⇾ Running Slither:
+/home/alfredadenigba/.local/bin/slither test/GameInvariantTest.sol --ignore-compile --print echidna --json -
